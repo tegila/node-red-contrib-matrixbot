@@ -22,11 +22,7 @@ module.exports = function(RED) {
     node.accessToken = config.accessToken;
     node.matrixServerURL = config.matrixServerURL;
 
-    node.matrixClient = sdk.createClient({
-      baseUrl: node.matrixServerURL
-      //                accessToken: node.accessToken,
-      //                userId: node.userId
-    });
+    node.matrixClient = sdk.createClient(node.matrixServerURL);
 
     node.matrixClient
       .login("m.login.password", {
